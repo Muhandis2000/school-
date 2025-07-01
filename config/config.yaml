@@ -12,3 +12,298 @@ db:
 
 jwt:
   secret: "supersecretkey"
+
+swagger:
+  title: "Online School API"
+  version: "1.0.0"
+  description: "API for managing online school operations"
+  servers:
+    - url: "http://localhost:8080"
+  paths:
+    /auth/register:
+      post:
+        summary: "Register a new user"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  password:
+                    type: string
+                  role:
+                    type: string
+        responses:
+          "200":
+            description: "User registered successfully"
+    /auth/login:
+      post:
+        summary: "User login"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  password:
+                    type: string
+        responses:
+          "200":
+            description: "JWT token returned"
+    /auth/me:
+      get:
+        summary: "Get current user profile"
+        security:
+          - bearerAuth: []
+        responses:
+          "200":
+            description: "User data returned"
+    /admin/teachers:
+      get:
+        summary: "List of teachers (Admin only)"
+        security:
+          - bearerAuth: []
+      post:
+        summary: "Create a new teacher (Admin only)"
+        security:
+          - bearerAuth: []
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  subject:
+                    type: string
+        responses:
+          "200":
+            description: "Teacher created successfully"
+      put:
+        summary: "Update a teacher (Admin only)"
+        security:
+          - bearerAuth: []
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  subject:
+                    type: string
+        responses:
+          "200":
+            description: "Teacher updated successfully"
+      delete:
+        summary: "Delete a teacher (Admin only)"
+        security:
+          - bearerAuth: []
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+        responses:
+          "200":
+            description: "Teacher deleted successfully"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        subject:
+          type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+        details:
+          type: string
+    Success:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+        data:
+          type: object
+          additionalProperties: true
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalItems:
+          type: integer
+        totalPages:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    RegisterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+    UpdateTeacherRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        subject:
+          type: string
+    CreateTeacherRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        subject:
+          type: string
+    DeleteTeacherRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+    GetTeachersResponse:
+      type: object
+      properties:
+        teachers:
+          type: array
+          items:
+            $ref: "#/components/schemas/Teacher"
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+    GetCurrentUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+    RegisterResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          $ref: "#/components/schemas/Error"
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          $ref: "#/components/schemas/Success"
+    PaginationResponse:
+      type: object
+      properties:
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    TeacherResponse:
+      type: object
+      properties:
+        teacher:
+          $ref: "#/components/schemas/Teacher"
+    CreateTeacherResponse:
+      type: object
+      properties:
+        teacher:
+          $ref: "#/components/schemas/Teacher"
+    UpdateTeacherResponse:
+      type: object
+      properties:
+        teacher:
+          $ref: "#/components/schemas/Teacher"
+    DeleteTeacherResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+        data:
+          type: object
+          additionalProperties: true
