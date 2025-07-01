@@ -1,0 +1,357 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset204 Calibri;}{\f2\fnil Calibri;}{\f3\fnil\fcharset1 Segoe UI Symbol;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Segoe UI Emoji;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang1033 /student/certificate:\par
+    post:\par
+      summary: "\f1\lang1049\'cf\'ee\'eb\'f3\'f7\'e8\'f2\'fc \'f1\'e5\'f0\'f2\'e8\'f4\'e8\'ea\'e0\'f2 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+components:\par
+  securitySchemes:\par
+    bearerAuth:\par
+      type: http\par
+      scheme: bearer\par
+      bearerFormat: JWT\par
+'''\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+# Rewriting the swagger.yaml file again after code execution state reset\par
+swagger_content = '''\par
+openapi: "3.0.0"\par
+info:\par
+  title: "Online School API"\par
+  version: "1.0.0"\par
+servers:\par
+  - url: "{{\field{\*\fldinst{HYPERLINK http://localhost:8080 }}{\fldrslt{http://localhost:8080\ul0\cf0}}}}\f1\fs22 "\par
+paths:\par
+  /auth/register:\par
+    post:\par
+      summary: "\'d0\'e5\'e3\'e8\'f1\'f2\'f0\'e0\'f6\'e8\'ff \'ef\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'ff"\par
+      requestBody:\par
+        required: true\par
+        content:\par
+          application/json:\par
+            schema:\par
+              type: object\par
+              properties:\par
+                name:\par
+                  type: string\par
+                email:\par
+                  type: string\par
+                password:\par
+                  type: string\par
+                role:\par
+                  type: string\par
+      responses:\par
+        "200":\par
+          description: "\'cf\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'fc \'e7\'e0\'f0\'e5\'e3\'e8\'f1\'f2\'f0\'e8\'f0\'ee\'e2\'e0\'ed"\par
+  /auth/login:\par
+    post:\par
+      summary: "\'cb\'ee\'e3\'e8\'ed \'ef\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'ff"\par
+      requestBody:\par
+        required: true\par
+        content:\par
+          application/json:\par
+            schema:\par
+              type: object\par
+              properties:\par
+                email:\par
+                  type: string\par
+                password:\par
+                  type: string\par
+      responses:\par
+        "200":\par
+          description: "JWT \'f2\'ee\'ea\'e5\'ed"\par
+  /auth/me:\par
+    get:\par
+      summary: "\'cf\'f0\'ee\'f4\'e8\'eb\'fc \'f2\'e5\'ea\'f3\'f9\'e5\'e3\'ee \'ef\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'ff"\par
+      security:\par
+        - bearerAuth: []\par
+      responses:\par
+        "200":\par
+          description: "\'c4\'e0\'ed\'ed\'fb\'e5 \'ef\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'ff"\par
+  /admin/teachers:\par
+    get:\par
+      summary: "\'d1\'ef\'e8\'f1\'ee\'ea \'f3\'f7\'e8\'f2\'e5\'eb\'e5\'e9 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    post:\par
+      summary: "\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'f3\'f7\'e8\'f2\'e5\'eb\'ff (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    put:\par
+      summary: "\'ce\'e1\'ed\'ee\'e2\'e8\'f2\'fc \'f3\'f7\'e8\'f2\'e5\'eb\'ff (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    delete:\par
+      summary: "\'d3\'e4\'e0\'eb\'e8\'f2\'fc \'f3\'f7\'e8\'f2\'e5\'eb\'ff (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /admin/students:\par
+    get:\par
+      summary: "\'d1\'ef\'e8\'f1\'ee\'ea \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'ee\'e2 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    post:\par
+      summary: "\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'e0 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    put:\par
+      summary: "\'ce\'e1\'ed\'ee\'e2\'e8\'f2\'fc \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'e0 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    delete:\par
+      summary: "\'d3\'e4\'e0\'eb\'e8\'f2\'fc \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'e0 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /admin/lessons:\par
+    get:\par
+      summary: "\'d1\'ef\'e8\'f1\'ee\'ea \'f3\'f0\'ee\'ea\'ee\'e2 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    post:\par
+      summary: "\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'f3\'f0\'ee\'ea (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    put:\par
+      summary: "\'ce\'e1\'ed\'ee\'e2\'e8\'f2\'fc \'f3\'f0\'ee\'ea (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    delete:\par
+      summary: "\'d3\'e4\'e0\'eb\'e8\'f2\'fc \'f3\'f0\'ee\'ea (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /admin/schedules:\par
+    get:\par
+      summary: "\'d1\'ef\'e8\'f1\'ee\'ea \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e9 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    post:\par
+      summary: "\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e5 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    put:\par
+      summary: "\'ce\'e1\'ed\'ee\'e2\'e8\'f2\'fc \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e5 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    delete:\par
+      summary: "\'d3\'e4\'e0\'eb\'e8\'f2\'fc \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e5 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /admin/payments:\par
+    get:\par
+      summary: "\'d1\'ef\'e8\'f1\'ee\'ea \'ee\'ef\'eb\'e0\'f2 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    post:\par
+      summary: "\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'ee\'ef\'eb\'e0\'f2\'f3 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    put:\par
+      summary: "\'ce\'e1\'ed\'ee\'e2\'e8\'f2\'fc \'ee\'ef\'eb\'e0\'f2\'f3 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+    delete:\par
+      summary: "\'d3\'e4\'e0\'eb\'e8\'f2\'fc \'ee\'ef\'eb\'e0\'f2\'f3 (Admin only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /teacher/attendance:\par
+    post:\par
+      summary: "\'ce\'f2\'ec\'e5\'f2\'e8\'f2\'fc \'ef\'ee\'f1\'e5\'f9\'e0\'e5\'ec\'ee\'f1\'f2\'fc (Teacher only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /teacher/grades:\par
+    post:\par
+      summary: "\'c2\'fb\'f1\'f2\'e0\'e2\'e8\'f2\'fc \'ee\'f6\'e5\'ed\'ea\'e8 (Teacher only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /student/schedule:\par
+    get:\par
+      summary: "\'cf\'ee\'f1\'ec\'ee\'f2\'f0\'e5\'f2\'fc \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e5 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /student/lessons:\par
+    get:\par
+      summary: "\'cf\'ee\'f1\'ec\'ee\'f2\'f0\'e5\'f2\'fc \'f1\'ef\'e8\'f1\'ee\'ea \'f3\'f0\'ee\'ea\'ee\'e2 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /student/grades:\par
+    get:\par
+      summary: "\'cf\'ee\'f1\'ec\'ee\'f2\'f0\'e5\'f2\'fc \'ee\'f6\'e5\'ed\'ea\'e8 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /student/homeworks:\par
+    post:\par
+      summary: "\'d1\'e4\'e0\'f2\'fc \'e4\'ee\'ec\'e0\'f8\'ed\'e5\'e5 \'e7\'e0\'e4\'e0\'ed\'e8\'e5 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+  /student/certificate:\par
+    post:\par
+      summary: "\'cf\'ee\'eb\'f3\'f7\'e8\'f2\'fc \'f1\'e5\'f0\'f2\'e8\'f4\'e8\'ea\'e0\'f2 (Student only)"\par
+      security:\par
+        - bearerAuth: []\par
+components:\par
+  securitySchemes:\par
+    bearerAuth:\par
+      type: http\par
+      scheme: bearer\par
+      bearerFormat: JWT\par
+'''\par
+\par
+swagger_path = "/mnt/data/swagger.yaml"\par
+with open(swagger_path, "w", encoding="utf-8") as f:\par
+    f.write(swagger_content.strip())\par
+\par
+swagger_path\par
+\'d0\'e5\'e7\'f3\'eb\'fc\'f2\'e0\'f2\par
+'/mnt/data/swagger.yaml'\par
+\par
+\'d0\'ee\'eb\'fc\tab\'ce\'f1\'ed\'ee\'e2\'ed\'fb\'e5 \'ef\'f0\'e0\'e2\'e0 \'e8 \'e4\'ee\'f1\'f2\'f3\'ef\'ed\'fb\'e5 \'fd\'ed\'e4\'ef\'ee\'e8\'ed\'f2\'fb\par
+admin\tab -\u8239?\'d3\'ef\'f0\'e0\'e2\'eb\'e5\'ed\'e8\'e5 \'ef\'ee\'eb\'fc\'e7\'ee\'e2\'e0\'f2\'e5\'eb\'ff\'ec\'e8 (teacher, student):\par
+\f2\u8239?\u8239?\bullet\lang1033\u8239?\f0 GET\u8239?/admin/verify/teachers,\u8239?PATCH\u8239?/admin/verify/teachers/:id\par
+\f2\u8239?\u8239?\bullet\u8239?\f0 GET\u8239?/admin/verify/students,\u8239?PATCH\u8239?/admin/verify/students/:id\par
+\f2\u8239?\u8239?\bullet\u8239?\f0 CRUD\u8239?/admin/teachers,\u8239?/admin/students\par
+\par
+-\u8239?CRUD \u1082?\u1091?\u1088?\u1089?\u1086?\u1074?:\u8239?/admin/courses\par
+-\u8239?CRUD \u1088?\u1072?\u1089?\u1087?\u1080?\u1089?\u1072?\u1085?\u1080?\u1103?:\u8239?/admin/schedules\par
+-\u8239?CRUD \u1087?\u1083?\u1072?\u1090?\u1077?\u1078?\u1077?\u1081?:\u8239?/admin/payments\par
+teacher\tab -\f1\lang1049\u8239?\'d1\'ee\'e7\'e4\'e0\'ed\'e8\'e5 \'e8 \'f3\'ef\'f0\'e0\'e2\'eb\'e5\'ed\'e8\'e5 \'f1\'e2\'ee\'e8\'ec\'e8 \'ea\'f3\'f0\'f1\'e0\'ec\'e8:\f0\lang1033\u8239?POST/GET\u8239?/teacher/courses\par
+-\f1\lang1049\u8239?\'ce\'f2\'ec\'e5\'f2\'ea\'e0 \'ef\'ee\'f1\'e5\'f9\'e0\'e5\'ec\'ee\'f1\'f2\'e8:\f0\lang1033\u8239?POST\u8239?/teacher/attendance\par
+-\f1\lang1049\u8239?\'c2\'fb\'f1\'f2\'e0\'e2\'eb\'e5\'ed\'e8\'e5 \'ee\'f6\'e5\'ed\'ee\'ea:\f0\lang1033\u8239?POST\u8239?/teacher/grades\par
+-\u8239?(\u1087?\u1086? \u1078?\u1077?\u1083?\u1072?\u1085?\u1080?\u1102?) \u1055?\u1088?\u1086?\u1089?\u1084?\u1086?\u1090?\u1088? \u1089?\u1087?\u1080?\u1089?\u1082?\u1072? \u1089?\u1090?\u1091?\u1076?\u1077?\u1085?\u1090?\u1086?\u1074? \u1080? \u1088?\u1072?\u1089?\u1087?\u1080?\u1089?\u1072?\u1085?\u1080?\u1103? \u1089?\u1074?\u1086?\u1080?\u1093? \u1082?\u1091?\u1088?\u1089?\u1086?\u1074?\par
+student\tab -\f1\lang1049\u8239?\'c7\'e0\'ef\'e8\'f1\'fc \'ed\'e0 \'ea\'f3\'f0\'f1:\f0\lang1033\u8239?POST\u8239?/student/courses/:id/enroll\par
+-\f1\lang1049\u8239?\'cf\'f0\'ee\'f1\'ec\'ee\'f2\'f0 \'f1\'e2\'ee\'e8\'f5 \'ea\'f3\'f0\'f1\'ee\'e2 \'e8 \'f1\'f2\'e0\'f2\'f3\'f1\'e0:\f0\lang1033\u8239?GET\u8239?/student/courses[?status=completed]\par
+-\f1\lang1049\u8239?\'cf\'f0\'ee\'f1\'ec\'ee\'f2\'f0 \'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'ff:\f0\lang1033\u8239?GET\u8239?/student/schedule\par
+-\f1\lang1049\u8239?\'cf\'f0\'ee\'f1\'ec\'ee\'f2\'f0 \'f3\'f0\'ee\'ea\'ee\'e2:\f0\lang1033\u8239?GET\u8239?/student/lessons\par
+-\f1\lang1049\u8239?\'d1\'e4\'e0\'f7\'e0 \'e4\'ee\'ec\'e0\'f8\'ea\'e8:\f0\lang1033\u8239?POST\u8239?/student/homeworks\par
+-\f1\lang1049\u8239?\'cf\'f0\'ee\'f1\'ec\'ee\'f2\'f0 \'ee\'f6\'e5\'ed\'ee\'ea:\f0\lang1033\u8239?GET\u8239?/student/grades\par
+-\f1\lang1049\u8239?\'c7\'e0\'ef\'f0\'ee\'f1 \'f1\'e5\'f0\'f2\'e8\'f4\'e8\'ea\'e0\'f2\'e0:\f0\lang1033\u8239?POST\u8239?/student/certificate\par
+\par
+\par
+\f3\u-10179?\u-9135?\f2  \f0 Admin\par
+\f4\u9989?\f2  \f1\lang1049\'cf\'ee\'e4\'f2\'e2\'e5\'f0\'e4\'e8\'f2\'fc \'f3\'f7\'e8\'f2\'e5\'eb\'e5\'e9 / \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'ee\'e2:\par
+GET /admin/verify/teachers\par
+PATCH /admin/verify/teachers/:id\par
+\par
+GET /admin/verify/students\par
+PATCH /admin/verify/students/:id\par
+\par
+\f3\u-10179?\u-9116?\f2\lang1033  \f1\lang1049\'d1\'ee\'e7\'e4\'e0\'f2\'fc \'f3\'f7\'e8\'f2\'e5\'eb\'ff / \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'e0\par
+POST /admin/teachers\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "name": "John",\par
+  "email": "john@school.com",\par
+  "password": "teacher123",\par
+  "role": "teacher"\par
+\}\par
+POST /admin/students\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "name": "Ali",\par
+  "email": "ali@student.com",\par
+  "password": "student123",\par
+  "role": "student"\par
+\}\par
+\f3\u-10179?\u-8998?\f2\lang1033  \f0 CRUD \f1\lang1049\'f3\'f0\'ee\'ea\'ee\'e2\par
+POST /admin/lessons\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "title": "Go Basics",\par
+  "description": "Intro to Go",\par
+  "teacher_id": 2\par
+\}\par
+\f5\u-10179?\u-8749?\u-497?\f2\lang1033  \f0 CRUD \f1\lang1049\'f0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'ff\par
+POST /admin/schedules\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "lesson_id": 1,\par
+  "teacher_id": 2,\par
+  "start_time": "2025-07-01T10:00:00Z",\par
+  "end_time": "2025-07-01T11:00:00Z"\par
+\}\par
+\f3\u-10179?\u-9037?\f2\lang1033  \f0 CRUD \f1\lang1049\'ee\'ef\'eb\'e0\'f2\par
+POST /admin/payments\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "student_id": 3,\par
+  "tariff_id": 1,\par
+  "amount": 500.00\par
+\}\par
+\f5\u-10179?\u-9112?\u8205?\f3\u-10180?\u-8213?\f2\lang1033  \f0 Teacher\par
+\f3\u-10179?\u-9012?\f2  \f1\lang1049\'ce\'f2\'ec\'e5\'f2\'ea\'e0 \'ef\'ee\'f1\'e5\'f9\'e0\'e5\'ec\'ee\'f1\'f2\'e8:\par
+POST /teacher/attendance\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "student_id": 3,\par
+  "lesson_id": 1,\par
+  "present": true\par
+\}\par
+\f3\u-10179?\u-9012?\f2\lang1033  \f1\lang1049\'ce\'f6\'e5\'ed\'ea\'e0 \'f1\'f2\'f3\'e4\'e5\'ed\'f2\'ee\'e2:\par
+POST /teacher/grades\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "student_id": 3,\par
+  "lesson_id": 1,\par
+  "value": "A"\par
+\}\par
+\f5\u-10179?\u-9112?\u8205?\f3\u-10180?\u-8301?\f2\lang1033  \f0 Student\par
+\f5\u-10179?\u-8749?\u-497?\f2  \f1\lang1049\'d0\'e0\'f1\'ef\'e8\'f1\'e0\'ed\'e8\'e5\par
+GET /student/schedule\par
+\par
+\f3\u-10179?\u-8998?\f2\lang1033  \f1\lang1049\'d3\'f0\'ee\'ea\'e8\par
+GET /student/lessons\par
+\par
+\f3\u-10179?\u-8995?\f2\lang1033  \f1\lang1049\'d1\'e4\'e0\'f2\'fc \'e4\'ee\'ec\'e0\'f8\'ea\'f3\par
+POST /student/homeworks\par
+\par
+json\par
+\'ca\'ee\'ef\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\'d0\'e5\'e4\'e0\'ea\'f2\'e8\'f0\'ee\'e2\'e0\'f2\'fc\par
+\{\par
+  "lesson_id": 1,\par
+  "content": "My solution to task"\par
+\}\par
+\f3\u-10179?\u-9014?\f2\lang1033  \f1\lang1049\'ce\'f6\'e5\'ed\'ea\'e8\par
+GET /student/grades\par
+\par
+\f5\u-10178?\u-8706?\f2\lang1033  \f1\lang1049\'cf\'ee\'eb\'f3\'f7\'e8\'f2\'fc \'f1\'e5\'f0\'f2\'e8\'f4\'e8\'ea\'e0\'f2\par
+POST /student/certificate\par
+\f0\lang1033\par
+}
+ 

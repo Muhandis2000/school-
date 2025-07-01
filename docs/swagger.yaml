@@ -1,0 +1,200 @@
+# Rewriting the swagger.yaml file again after code execution state reset
+app:
+  port: 8080
+  jwt_secret: "supersecretkey"
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "12345"
+  name: "school"
+
+swagger_content = '''
+openapi: "3.0.0"
+info:
+  title: "Online School API"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080"
+paths:
+  /auth/register:
+    post:
+      summary: "Регистрация пользователя"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+      responses:
+        "200":
+          description: "Пользователь зарегистрирован"
+  /auth/login:
+    post:
+      summary: "Логин пользователя"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: "JWT токен"
+  /auth/me:
+    get:
+      summary: "Профиль текущего пользователя"
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: "Данные пользователя"
+  /admin/teachers:
+    get:
+      summary: "Список учителей (Admin only)"
+      security:
+        - bearerAuth: []
+    post:
+      summary: "Создать учителя (Admin only)"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Обновить учителя (Admin only)"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Удалить учителя (Admin only)"
+      security:
+        - bearerAuth: []
+  /admin/students:
+    get:
+      summary: "Список студентов (Admin only)"
+      security:
+        - bearerAuth: []
+    post:
+      summary: "Создать студента (Admin only)"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Обновить студента (Admin only)"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Удалить студента (Admin only)"
+      security:
+        - bearerAuth: []
+  /admin/lessons:
+    get:
+      summary: "Список уроков (Admin only)"
+      security:
+        - bearerAuth: []
+    post:
+      summary: "Создать урок (Admin only)"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Обновить урок (Admin only)"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Удалить урок (Admin only)"
+      security:
+        - bearerAuth: []
+  /admin/schedules:
+    get:
+      summary: "Список расписаний (Admin only)"
+      security:
+        - bearerAuth: []
+    post:
+      summary: "Создать расписание (Admin only)"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Обновить расписание (Admin only)"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Удалить расписание (Admin only)"
+      security:
+        - bearerAuth: []
+  /admin/payments:
+    get:
+      summary: "Список оплат (Admin only)"
+      security:
+        - bearerAuth: []
+    post:
+      summary: "Создать оплату (Admin only)"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Обновить оплату (Admin only)"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Удалить оплату (Admin only)"
+      security:
+        - bearerAuth: []
+  /teacher/attendance:
+    post:
+      summary: "Отметить посещаемость (Teacher only)"
+      security:
+        - bearerAuth: []
+  /teacher/grades:
+    post:
+      summary: "Выставить оценки (Teacher only)"
+      security:
+        - bearerAuth: []
+  /student/schedule:
+    get:
+      summary: "Посмотреть расписание (Student only)"
+      security:
+        - bearerAuth: []
+  /student/lessons:
+    get:
+      summary: "Посмотреть список уроков (Student only)"
+      security:
+        - bearerAuth: []
+  /student/grades:
+    get:
+      summary: "Посмотреть оценки (Student only)"
+      security:
+        - bearerAuth: []
+  /student/homeworks:
+    post:
+      summary: "Сдать домашнее задание (Student only)"
+      security:
+        - bearerAuth: []
+  /student/certificate:
+    post:
+      summary: "Получить сертификат (Student only)"
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+'''
+
+swagger_path = "/mnt/data/swagger.yaml"
+with open(swagger_path, "w", encoding="utf-8") as f:
+    f.write(swagger_content.strip())
+
+swagger_path
+Результат
+'/mnt/data/swagger.yaml'

@@ -1,0 +1,41 @@
+- go.mod
+- .env
+- config/
+  - config.yaml
+  - config.go
+- migrations/
+  - init.sql
+- docs/
+  - swagger.yaml
+- internal/
+  - database/
+  - init.go
+  - models/
+  - user.go
+  - lesson.go
+  - schedule.go
+  - grade.go
+  - attendance.go
+  - homework.go
+  - payment.go
+  - tariff.go
+  - handlers/
+  - auth.go
+  - admin.go
+  - teacher.go
+  - student.go
+  - routes/
+  - auth.go
+  - admin.go
+  - teacher.go
+  - student.go
+  - middleware/
+  - auth.go
+  - roles.go
+  - services/
+  - (можно добавить при необходимости)
+  - logger/
+  - logger.go
+- main.go
+- README.md
+- .gitignore
